@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Q2 2014 — Mortgage Market Recap</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--bg:#0a0a14;--s1:#12122a;--s2:#1a1a3a;--s3:#222250;--bd:#2a2a55;--tx:#d8d8e8;--dm:#6a6a8a;--ac:#4ECDC4;--r:#FF6B6B;--y:#FFE66D;--p:#A78BFA;--o:#F97316;--cy:#06B6D4;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;line-height:1.6}
+.wrap{max-width:1400px;margin:0 auto;padding:20px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd);margin-bottom:16px}
+.nl{color:var(--ac);text-decoration:none;font-size:12px;font-family:'JetBrains Mono',monospace}
+.nl:hover{text-decoration:underline}
+.nt{color:var(--dm);font-size:10px;text-transform:uppercase;letter-spacing:2px}
+.hdr{text-align:center;padding:20px 0 16px}
+.hdr h1{font-size:42px;font-weight:800;background:linear-gradient(135deg,var(--ac),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr .sub{font-size:12px;color:var(--dm);font-family:'JetBrains Mono',monospace}
+/* Big numbers row */
+.bigs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.big{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px;text-align:center}
+.big .v{font-size:32px;font-weight:800;font-family:'JetBrains Mono',monospace}
+.big .l{font-size:10px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+/* Cards */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.g23{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
+.c{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.c .ct{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dm);font-weight:600;margin-bottom:10px}
+.full{grid-column:1/-1}
+canvas{width:100%!important;max-height:280px}
+/* Events */
+.ev{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:13px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ac);flex-shrink:0;margin-top:6px}
+/* Metrics grid */
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mi{display:flex;justify-content:space-between;padding:5px 8px;border-radius:4px;background:var(--s2)}
+.mi .mk{font-size:11px;color:var(--dm);font-family:'JetBrains Mono',monospace}
+.mi .mv{font-size:12px;font-weight:600;font-family:'JetBrains Mono',monospace}
+/* Loop indicators */
+.loops{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.lp{text-align:center;background:var(--s2);border-radius:8px;padding:10px 4px}
+.lp .ln{font-size:8px;color:var(--dm);line-height:1.2;margin-top:4px}
+.lp .ls{font-size:9px;font-weight:700;font-family:'JetBrains Mono',monospace}
+/* Narrative */
+.narr{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:16px}
+.narr .sh{font-size:17px;font-weight:700;color:var(--ac);margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--bd)}
+.narr .sh:first-child{margin-top:0}
+.narr p{margin-bottom:8px;font-size:13.5px;line-height:1.7}
+.narr .bq{border-left:3px solid var(--p);padding:10px 14px;margin:14px 0;background:rgba(167,139,250,0.06);border-radius:0 8px 8px 0;font-style:italic;color:var(--dm);font-size:12.5px;line-height:1.65}
+.narr .bq strong{color:var(--ac);font-style:normal}
+.narr .disc{font-size:10px;color:var(--dm);font-style:italic;margin-top:16px}
+.ft{text-align:center;padding:16px;color:var(--dm);font-size:10px;border-top:1px solid var(--bd);margin-top:16px;font-family:'JetBrains Mono',monospace}
+@media(max-width:900px){.bigs,.g2,.g3,.g23{grid-template-columns:1fr}.loops{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
+<div class="wrap">
+<div class="nav"><a href="2014_Q1.html" class="nl">← Q1 2014</a><a href="index.html" class="nt">48-Quarter Mortgage Market Recap Series</a><a href="2014_Q3.html" class="nl">Q3 2014 →</a></div>
+<div class="hdr"><h1>Q2 2014</h1><div class="sub">Agency MBS Strategy — Quarterly Market Recap</div></div>
+
+<!-- Big Numbers -->
+<div class="bigs">
+<div class="big"><div class="v" style="color:var(--y)">4.16%</div><div class="l">30yr Mortgage</div></div>
+<div class="big"><div class="v" style="color:var(--cy)">2.62%</div><div class="l">10yr Treasury</div></div>
+<div class="big"><div class="v" style="color:var(--ac)">22bp</div><div class="l">MBS OAS</div></div>
+<div class="big"><div class="v" style="color:var(--ac)">+220bp</div><div class="l">2s10s Curve</div></div>
+<div class="big"><div class="v" style="color:var(--p)">$310B</div><div class="l">Origination</div></div>
+</div>
+
+<!-- Row 1: Rates History + Yield Curve -->
+<div class="g23">
+<div class="c"><div class="ct">Rate Environment — Historical</div><canvas id="chRates" height="200"></canvas></div>
+<div class="c"><div class="ct">Yield Curve Snapshot</div><canvas id="chYC" height="200"></canvas></div>
+</div>
+
+<!-- Row 2: OAS + 2s10s -->
+<div class="g2">
+<div class="c"><div class="ct">MBS OAS (bp) — Historical</div><canvas id="chOAS" height="180"></canvas></div>
+<div class="c"><div class="ct">2s10s Curve (bp) — Historical</div><canvas id="chCurve" height="180"></canvas></div>
+</div>
+
+<!-- Row 3: Origination + Fed BS -->
+<div class="g2">
+<div class="c"><div class="ct">Origination Volume ($B) — Purchase vs Refi</div><canvas id="chOrig" height="180"></canvas></div>
+<div class="c"><div class="ct">Fed MBS Holdings ($T) & Gross Issuance ($B)</div><canvas id="chFed" height="180"></canvas></div>
+</div>
+
+<!-- Row 4: Housing + Prepayments -->
+<div class="g2">
+<div class="c"><div class="ct">Housing — Sales, Starts, HPA</div><canvas id="chHousing" height="180"></canvas></div>
+<div class="c"><div class="ct">Prepayment Speeds (CPR) — Historical</div><canvas id="chCPR" height="180"></canvas></div>
+</div>
+
+<!-- Row 5: GSE Earnings + Feedback Loops -->
+<div class="g2">
+<div class="c"><div class="ct">GSE Net Income ($B)</div><canvas id="chGSE" height="180"></canvas></div>
+<div class="c"><div class="ct">Six Feedback Loops — Activation Radar</div><canvas id="chRadar" height="200"></canvas></div>
+</div>
+
+<!-- Row 6: Events + Metrics + Loops -->
+<div class="g3">
+<div class="c"><div class="ct">Key Events</div><div class="ev"><span class="dot"></span>QE3 taper continues</div><div class="ev"><span class="dot"></span>ECB negative rates</div><div class="ev"><span class="dot"></span>GDP Q1 revised -2.9%</div><div class="ev"><span class="dot"></span>Spring housing rebound</div></div>
+<div class="c"><div class="ct">Key Metrics</div><div class="mg">
+<div class="mi"><span class="mk">30yr Fixed</span><span class="mv">4.16%</span></div>
+<div class="mi"><span class="mk">15yr Fixed</span><span class="mv">3.25%</span></div>
+<div class="mi"><span class="mk">10yr UST</span><span class="mv">2.62%</span></div>
+<div class="mi"><span class="mk">Fed Funds</span><span class="mv">0.00-0.25</span></div>
+<div class="mi"><span class="mk">MBS OAS</span><span class="mv">22bp</span></div>
+<div class="mi"><span class="mk">2s10s</span><span class="mv">+220bp</span></div>
+<div class="mi"><span class="mk">Coupon</span><span class="mv">4.0%</span></div>
+<div class="mi"><span class="mk">HPA YoY</span><span class="mv">10.3%</span></div>
+<div class="mi"><span class="mk">Sales</span><span class="mv">4.9M</span></div>
+<div class="mi"><span class="mk">Starts</span><span class="mv">0.99M</span></div>
+<div class="mi"><span class="mk">Refi Share</span><span class="mv">52%</span></div>
+<div class="mi"><span class="mk">Fed MBS</span><span class="mv">$1.63T</span></div>
+<div class="mi"><span class="mk">Fannie NI</span><span class="mv">$3.7B</span></div>
+<div class="mi"><span class="mk">Freddie NI</span><span class="mv">$2.0B</span></div>
+<div class="mi"><span class="mk">Pay-ups</span><span class="mv">Moderate</span></div>
+<div class="mi"><span class="mk">Avg CPR</span><span class="mv">9</span></div>
+</div></div>
+<div class="c"><div class="ct">Feedback Loop Status</div><div class="loops"><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="17" fill="#FF6B6B" opacity="0.60"/><circle cx="25" cy="25" r="10" fill="#FF6B6B" opacity="1.00"/></svg><div class="ln">Fed BS ↔ MBS Basis</div><div class="ls" style="color:#FF6B6B">Activating</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="9" fill="#4ECDC4" opacity="0.15"/><circle cx="25" cy="25" r="5" fill="#4ECDC4" opacity="0.20"/></svg><div class="ln">Rates ↔ Prepay ↔ Cvx</div><div class="ls" style="color:#4ECDC4">Dormant</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="9" fill="#FFE66D" opacity="0.15"/><circle cx="25" cy="25" r="5" fill="#FFE66D" opacity="0.20"/></svg><div class="ln">Lock-in ↔ Inventory</div><div class="ls" style="color:#FFE66D">Dormant</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="14" fill="#A78BFA" opacity="0.40"/><circle cx="25" cy="25" r="8" fill="#A78BFA" opacity="0.80"/></svg><div class="ln">Orig ↔ Supply ↔ Basis</div><div class="ls" style="color:#A78BFA">Moderate</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="12" fill="#F97316" opacity="0.30"/><circle cx="25" cy="25" r="7" fill="#F97316" opacity="0.60"/></svg><div class="ln">CRT ↔ GSE Capital</div><div class="ls" style="color:#F97316">Building</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="11" fill="#06B6D4" opacity="0.20"/><circle cx="25" cy="25" r="6" fill="#06B6D4" opacity="0.40"/></svg><div class="ln">Non-Agency Recovery</div><div class="ls" style="color:#06B6D4">Nascent</div></div></div></div></div>
+
+<!-- Narrative -->
+<div class="narr"><div class="ct" style="margin-bottom:12px">Full Quarterly Recap</div><p><strong>Quarterly Review: April - June 2014</strong></p>
+<p><em>Sell-Side MBS Strategy</em></p>
+<h3 class="sh">Executive Summary</h3>
+<p>Q2 2014 delivered a notable rates rally that confounded consensus expectations and provided a tailwind for agency MBS performance. The 10-year Treasury rallied from the 2.80% area in early April to test 2.50% by mid-quarter, finishing around 2.60% – a surprising move given the continued economic recovery narrative and ongoing Fed taper. Thirty-year mortgage rates declined to an average of 4.20% (down from ~4.40% in Q1), while the current coupon settled in the 4.0% vicinity. Despite easier financial conditions, the housing market showed signs of deceleration, with home price appreciation moderating and origination activity remaining subdued relative to historical norms. The Fed continued its measured QE3 taper, reducing monthly MBS purchases from $20B in April to $15B by June, yet technicals remained constructive as private demand absorbed supply with relative ease. Credit risk transfer (CRT) issuance gained momentum with additional STACR and CAS transactions, while the GSEs continued their impressive profitability trend. Overall, the quarter reinforced the structural bid for agency MBS in a world of scarce high-quality assets.</p>
+<h3 class="sh">Interest Rate Environment</h3>
+<p>The interest rate environment in Q2 proved remarkably resilient, delivering gains that caught many forecasters flat-footed. The 10-year Treasury began the quarter around 2.80% and rallied aggressively through May, briefly touching 2.50% before stabilizing around 2.62% by quarter-end. This 20-30bp rally occurred despite generally solid economic data and the ongoing Fed taper, highlighting persistent global demand for duration and growing concerns about secular stagnation.</p>
+<p>Fed funds remained anchored at 0-0.25%, with the FOMC maintaining its patient stance at both the April and June meetings. Forward guidance continued to evolve, with Chair Yellen emphasizing data-dependency and the Committee's willingness to maintain accommodation longer than market participants expected. The 2s10s curve steepened modestly to approximately 220bps, reflecting this dynamic – short rates pinned by ZIRP, longer rates grinding lower on duration demand and muted inflation.</p>
+<p>Primary mortgage rates followed Treasuries lower, with the 30-year conforming rate averaging approximately 4.20% for the quarter (versus 4.40% in Q1) and the 15-year rate around 3.30%. This represented a welcome reprieve for borrowers after the "taper tantrum" of 2013, though rates remained well above the sub-3.50% levels that had fueled the massive refi wave of 2012-early 2013. The current coupon established itself firmly in 4.0% territory, creating a cohort that would become important for supply dynamics in subsequent quarters.</p>
+<p>The rates rally was somewhat counterintuitive given the Fed's continued taper trajectory – monthly MBS purchases declined from $20B in April to $15B in June as the FOMC maintained its $10B-per-meeting reduction pace. Yet the market absorbed this supply reduction smoothly, suggesting that private demand was more than adequate to fill the gap. International flows, money managers reaching for yield, and bank portfolio demand all contributed to this surprisingly robust bid.</p>
+<h3 class="sh">MBS Basis and Technicals</h3>
+<p>Agency MBS technicals remained exceptionally constructive throughout Q2, with the basis (or payup over duration-matched Treasuries) staying tight despite the diminishing Fed footprint. Current coupon spreads held in well, generally trading in a 90-110bp range to the 10-year benchmark depending on coupon and month. This resilience reflected several factors: ongoing Fed reinvestment demand (even as outright purchases tapered), strong bank balance sheet demand (Basel III liquidity coverage ratio considerations), and international buyers seeking high-quality spread product.</p>
+<p>The specified pool universe remained relatively quiet, with pay-ups for loan balance and geographic characteristics modest by historical standards. Low loan balance (LLB) pools traded at approximately 0.5-1.0 tick premiums depending on coupon, while other story profiles generated minimal incremental value. This environment reflected the reality that prepayment protection was less valuable in a 4%+ rate environment where refi activity had normalized to more sustainable levels. Investors focused more on carry and roll-down characteristics than exotic structural features.</p>
+<p>Gross agency MBS issuance for the quarter totaled approximately $350B, representing a seasonal pickup from Q1 but still subdued relative to the multi-trillion-dollar issuance years of the mid-2000s. The Fed's declining purchase share meant that a greater proportion of new supply needed to be absorbed by private accounts, yet clearing levels remained stable – a testament to the structural shortage of high-quality, spread-bearing fixed income assets in the post-crisis landscape.</p>
+<p>TBA dollar rolls traded generally special through the quarter, with financing advantages providing additional total return to levered investors. Specified pool delivery optionality remained valuable for dealers managing convexity hedging requirements, though with implied volatility declining (in line with the rates rally), convexity hedging pressure moderated relative to the elevated levels seen during the 2013 selloff.</p>
+<h3 class="sh">Housing Market and Originations</h3>
+<p>The housing market narrative in Q2 shifted from unalloyed optimism to more nuanced concern about momentum. While the market remained in recovery mode, several indicators suggested deceleration. Home price appreciation, as measured by the Case-Shiller National Index, registered approximately 10.8% year-over-year growth – impressive in absolute terms but notably slower than the double-digit-plus pace of late 2013. Existing home sales ran at approximately 4.9M seasonally-adjusted annual rate (SAAR), down from the 5.0M+ levels achieved in Q1, while housing starts held around 1.0M SAAR, suggesting builders remained cautious about ramping supply.</p>
+<p>The culprits behind this deceleration were multiple: mortgage rates, while declining in Q2, remained elevated relative to 2012-early 2013 levels; affordability had compressed as prices rose faster than incomes; and inventory remained tight in many markets, limiting transaction volumes. Additionally, credit availability remained constrained by post-crisis lending standards, with FICO scores for new originations hovering in the mid-740s – well above historical averages.</p>
+<p>Total mortgage origination volume for Q2 approximated $300B, reflecting the seasonal pickup in purchase activity that typically occurs in spring and early summer. The purchase/refinance mix showed purchase originations at approximately $160B (53% of volume) versus refinance at $140B (47%). This represented a continued normalization away from the refi-dominated market of 2012-2013, though the refi share remained above the ~30-35% that characterized the pre-crisis "normal" market. Rate-term refis still made sense for borrowers with existing mortgages in the 4.75%+ range, providing a steady if unspectacular flow of prepayments.</p>
+<p>Delinquency rates continued their steady improvement, with 90+ day delinquencies declining to approximately 3.2% – down from peak levels above 10% in 2010 but still elevated relative to pre-crisis norms below 2%. The improvement reflected both aggressive loss mitigation efforts by servicers and the natural healing process as distressed borrowers either cured or exited the system through modifications, short sales, or foreclosures.</p>
+<h3 class="sh">GSE Performance and Policy</h3>
+<p>Both Fannie Mae and Freddie Mac continued to deliver strong financial performance in Q2, with Fannie generating approximately $3.7B in net income and Freddie approximately $1.4B. These results extended the profitability streak that began in 2012, enabling the GSEs to continue their dividend payments to Treasury under the net worth sweep arrangement. Cumulative dividends paid since the 2008 conservatorship now exceeded the original $187B drawn, though legal questions about the appropriateness of the sweep remained subject to ongoing litigation.</p>
+<p>The policy environment saw significant developments with Mel Watt's confirmation as FHFA Director in January beginning to bear fruit. The FHFA announced several initiatives aimed at expanding access to credit, including revised representations and warranties framework to provide more clarity on repurchase risk, and discussions about potentially lowering down payment requirements for certain qualified borrowers. These changes signaled a modest pivot from the post-crisis contraction in credit availability, though implementation would prove gradual and cautious.</p>
+<p>Guarantee fees (g-fees) remained stable at approximately 55-58bps, reflecting the various increases implemented since 2012. While these higher fees improved GSE returns and ostensibly leveled the playing field with private capital, they also contributed to the "high-rate" environment that constrained affordability. The debate over appropriate g-fee levels continued, with some arguing for further increases to encourage private capital re-entry and others warning that excessive fees would unduly restrict credit access.</p>
+<p>The credit risk transfer (CRT) program gathered momentum in Q2, with both Fannie (STACR) and Freddie (CAS) executing additional transactions. Year-to-date CRT issuance reached approximately $4B across various reference pools and structures, transferring meaningful credit risk to private investors. Pricing remained tight by historical standards, reflecting strong investor demand for structured credit exposure and confidence in the underlying loan quality. The STACR 2014-DN2 transaction in particular garnered attention for its size and diverse investor base, suggesting that the CRT market was maturing beyond specialty credit funds to include mainstream fixed income accounts.</p>
+<h3 class="sh">Prepayment Dynamics</h3>
+<p>Prepayment speeds in Q2 reflected the normalization theme that characterized broader origination dynamics. Higher-coupon MBS (4.5%+) experienced modest turnover driven by purchase-driven prepayments and some residual rate-term refi activity, with CPRs generally in the low-to-mid teens depending on burnout characteristics and loan age. The 4.0% current coupon cohort – representing the bulk of Q2 production – priced with expectations of stable, low single-digit voluntary prepayment speeds augmented by housing turnover in the 5-6% CPR range.</p>
+<p>Lower coupon MBS (3.5% and below) remained well-protected from refinancing risk, with these deeply out-of-the-money borrowers exhibiting speeds dominated by housing turnover. These securities traded at premiums reflecting their extension risk rather than prepayment risk, with investors focused on the asymmetry of upside (if rates moved significantly higher) versus downside (stable cash flows in a low-rate environment).</p>
+<p>Geographic and loan balance variance remained evident, with California loans generally prepaying faster than national averages (reflecting the state's more dynamic housing market), while low-balance loans in slower-turnover markets provided natural prepayment protection. However, with specified pool pay-ups modest, the return on investment for conducting granular pool analysis was limited – most investors remained content with TBA delivery given the minimal economic advantage of pool selection.</p>
+<p>Servicer advances and modifications continued to influence prepayment patterns at the margin, particularly for higher-LTV and lower-FICO cohorts where HARP refis and proprietary modification programs provided alternatives to traditional rate-term refinancing. The HARP program, while past its peak utilization, still facilitated some refi activity for underwater borrowers with Fannie/Freddie loans originated before June 2009.</p>
+<h3 class="sh">Commercial and Non-Agency Markets</h3>
+<p>The non-agency residential market remained nascent in Q2, with minimal new-issue RMBS outside of seasoned reperforming loan securitizations. While discussions about private-label resurgence continued, the reality was that regulatory uncertainty (particularly around risk retention rules), elevated g-fees notwithstanding, and ample agency execution made new-issue non-agency uneconomical for most lenders. Legacy non-agency bonds continued to benefit from improving housing fundamentals and declining delinquencies, with many vintage 2005-2007 mezzanine tranches experiencing price appreciation as loss projections improved.</p>
+<p>The commercial mortgage-backed securities (CMBS) market showed more vitality, with issuance running at a healthy pace as the commercial real estate recovery gained traction. Conduit CMBS spreads tightened modestly through Q2, reflecting both technical demand (insurance companies and pension funds seeking spread product) and fundamental improvement (declining delinquencies, rising property values, improving underwriting quality).</p>
+<p>Single-family rental (SFR) securitization continued to develop as an asset class, with several transactions backed by portfolios of rental homes assembled by institutional investors in the post-crisis distressed property market. These deals attracted attention for their novelty and as potential harbingers of a structural shift in American housing toward rental rather than ownership, though volumes remained small relative to traditional agency MBS.</p>
+<h3 class="sh">Outlook and Strategic Considerations</h3>
+<p>Looking ahead to Q3 and beyond, several themes warrant attention:</p>
+<p><strong>Fed Taper Trajectory</strong>: With QE3 tapering proceeding smoothly and economic data generally supportive, the market will focus on the likely endpoint (full completion by late 2014?) and the timing of first rate hike. The FOMC's forward guidance suggests liftoff remains distant, but any shift in communication could trigger volatility.</p>
+<p><strong>Housing Market Momentum</strong>: The deceleration evident in Q2 raises questions about whether housing can sustain its role as an economic growth driver. Slower price appreciation may actually help affordability and support sustainable demand, but a more significant slowdown could weigh on consumer confidence and construction activity.</p>
+<p><strong>Supply/Demand Technicals</strong>: As the Fed's footprint diminishes, the market's ability to absorb supply at current spread levels will be tested. Bank demand appears robust given LCR considerations, but any shock to risk appetite could widen spreads. Conversely, the global reach for yield could keep spreads pinned tighter than fundamentals suggest.</p>
+<p><strong>Credit Availability</strong>: The Watt-era FHFA initiatives signal potential expansion of the credit box, but implementation will be gradual. Meaningful broadening of credit access would boost volumes and potentially steepen the MBS stack as lower-FICO loans generate higher speeds.</p>
+<p><strong>Rates Direction</strong>: The Q2 rally left many strategists reassessing their bearish rate views. If secular stagnation concerns prove valid and inflation remains subdued, rates could grind lower even as the Fed exits QE. Conversely, any growth acceleration or inflation surprise could trigger a sharp reversal.</p>
+<p>From a positioning perspective, agency MBS continues to offer attractive risk-adjusted returns in a world starved for quality spread product. Current coupon MBS provides positive carry, limited duration risk relative to equivalently-yielding corporates, and an implicit government guarantee. Specified pools offer marginal value in select cohorts, though broad TBA strategies remain sensible for most accounts. Credit risk transfer securities merit consideration for investors seeking higher yields and comfortable with credit exposure to GSE loan production. Overall, the secular tailwinds of financial repression, demographic demand for fixed income, and constrained supply of safe assets should continue to support MBS valuations even as the Fed gradually exits the market.</p>
+<p class="disc">*This recap reflects market conditions and data as of June 30, 2014. Views expressed are those of the MBS Strategy desk and subject to change.*</p></div>
+<div class="ft">CMO Agent — Mortgage Market Recap Series — Q2 2014 — 48-Quarter Corpus Q1 2014–Q4 2025</div>
+</div>
+
+<script>
+const L=["Q1 2014", "Q2 2014"];
+const cDef={responsive:true,maintainAspectRatio:true,aspectRatio:2.2,plugins:{legend:{display:true,labels:{color:'#6a6a8a',font:{size:10,family:"JetBrains Mono"}}}},scales:{x:{ticks:{color:'#4a4a6a',font:{size:8},maxRotation:45,autoSkip:true,maxTicksLimit:12},grid:{color:'#1a1a3a'}},y:{ticks:{color:'#6a6a8a',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'}}}};
+const cDefNoLeg={...cDef,plugins:{legend:{display:false}}};
+
+// 1. Rates
+new Chart('chRates',{type:'line',data:{labels:L,datasets:[
+{label:'30yr Mtg',data:[4.34, 4.16],borderColor:'#FF6B6B',backgroundColor:'rgba(255,107,107,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},
+{label:'15yr',data:[3.4, 3.25],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[4,2]},
+{label:'10yr UST',data:[2.72, 2.62],borderColor:'#4ECDC4',backgroundColor:'rgba(78,205,196,0.08)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},
+{label:'Fed Funds',data:[0.25, 0.25],borderColor:'#FFE66D',backgroundColor:'transparent',tension:0.1,pointRadius:0,borderWidth:1.5,stepped:true}
+]},options:{...cDef,scales:{...cDef.scales,y:{...cDef.scales.y,title:{display:true,text:'Rate (%)',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 2. Yield Curve
+new Chart('chYC',{type:'line',data:{labels:['2yr','5yr','10yr','30yr'],datasets:[{label:'Yield Curve',data:[0.42, 1.52, 2.62, 2.9],borderColor:'#4ECDC4',backgroundColor:'rgba(78,205,196,0.15)',fill:true,tension:0.4,pointRadius:6,pointBackgroundColor:'#4ECDC4',borderWidth:3,pointBorderColor:'#0a0a14',pointBorderWidth:2}]},options:{...cDefNoLeg,scales:{x:{ticks:{color:'#6a6a8a',font:{size:11,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'}},y:{ticks:{color:'#6a6a8a',font:{size:10,family:"JetBrains Mono"},callback:v=>v.toFixed(1)+'%'},grid:{color:'#1a1a3a'}}}}});
+
+// 3. OAS
+new Chart('chOAS',{type:'bar',data:{labels:L,datasets:[{label:'OAS (bp)',data:[25, 22],backgroundColor:([25, 22]).map(v=>v>50?'rgba(255,107,107,0.7)':v>30?'rgba(255,230,109,0.7)':'rgba(78,205,196,0.7)'),borderRadius:2}]},options:cDefNoLeg});
+
+// 4. 2s10s
+new Chart('chCurve',{type:'line',data:{labels:L,datasets:[{label:'2s10s (bp)',data:[230, 220],borderColor:'#FFE66D',backgroundColor:'rgba(255,230,109,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},{label:'Zero',data:Array(2).fill(0),borderColor:'rgba(255,107,107,0.5)',borderWidth:1,borderDash:[4,4],pointRadius:0}]},options:cDef});
+
+// 5. Origination
+new Chart('chOrig',{type:'bar',data:{labels:L,datasets:[{label:'Purchase',data:[117.0, 148.8],backgroundColor:'rgba(78,205,196,0.7)',borderRadius:2},{label:'Refi',data:[143.0, 161.2],backgroundColor:'rgba(167,139,250,0.7)',borderRadius:2}]},options:{...cDef,scales:{...cDef.scales,x:{...cDef.scales.x,stacked:true},y:{...cDef.scales.y,stacked:true,title:{display:true,text:'$B',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 6. Fed + Issuance
+new Chart('chFed',{type:'line',data:{labels:L,datasets:[{label:'Fed MBS ($T)',data:[1.55, 1.63],borderColor:'#FF6B6B',backgroundColor:'rgba(255,107,107,0.12)',fill:true,tension:0.3,pointRadius:1,borderWidth:2,yAxisID:'y'},{label:'Gross Issuance ($B)',data:[230, 280],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[4,2],yAxisID:'y1'}]},options:{...cDef,scales:{x:cDef.scales.x,y:{position:'left',ticks:{color:'#FF6B6B',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'},title:{display:true,text:'Fed MBS ($T)',color:'#FF6B6B',font:{size:10}}},y1:{position:'right',ticks:{color:'#A78BFA',font:{size:9,family:"JetBrains Mono"}},grid:{display:false},title:{display:true,text:'Issuance ($B)',color:'#A78BFA',font:{size:10}}}}}});
+
+// 7. Housing
+new Chart('chHousing',{type:'line',data:{labels:L,datasets:[{label:'HPA YoY%',data:[11.0, 10.3],borderColor:'#F97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2,yAxisID:'y'},{label:'Sales (M)',data:[4.6, 4.9],borderColor:'#4ECDC4',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,yAxisID:'y1'},{label:'Starts (M)',data:[0.92, 0.99],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[3,3],yAxisID:'y1'}]},options:{...cDef,scales:{x:cDef.scales.x,y:{position:'left',ticks:{color:'#F97316',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'},title:{display:true,text:'HPA %',color:'#F97316',font:{size:10}}},y1:{position:'right',ticks:{color:'#4ECDC4',font:{size:9,family:"JetBrains Mono"}},grid:{display:false},title:{display:true,text:'SAAR (M)',color:'#4ECDC4',font:{size:10}}}}}});
+
+// 8. CPR
+new Chart('chCPR',{type:'line',data:{labels:L,datasets:[{label:'Avg CPR',data:[8, 9],borderColor:'#06B6D4',backgroundColor:'rgba(6,182,212,0.15)',fill:true,tension:0.3,pointRadius:2,borderWidth:2.5,pointBackgroundColor:'#06B6D4'}]},options:{...cDefNoLeg,scales:{...cDef.scales,y:{...cDef.scales.y,title:{display:true,text:'CPR',color:'#06B6D4',font:{size:10}}}}}});
+
+// 9. GSE
+new Chart('chGSE',{type:'bar',data:{labels:L,datasets:[{label:'Fannie NI',data:[3.1, 3.7],backgroundColor:'rgba(78,205,196,0.7)',borderRadius:2},{label:'Freddie NI',data:[1.8, 2.0],backgroundColor:'rgba(167,139,250,0.7)',borderRadius:2}]},options:{...cDef,scales:{...cDef.scales,x:{...cDef.scales.x,stacked:true},y:{...cDef.scales.y,stacked:true,title:{display:true,text:'$B',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 10. Radar
+new Chart('chRadar',{type:'radar',data:{labels:["Fed BS \u2194 MBS Basis", "Rates \u2194 Prepay \u2194 Cvx", "Lock-in \u2194 Inventory", "Orig \u2194 Supply \u2194 Basis", "CRT \u2194 GSE Capital", "Non-Agency Recovery"],datasets:[{label:'Activation',data:[60, 10, 10, 40, 30, 20],backgroundColor:'rgba(78,205,196,0.2)',borderColor:'#4ECDC4',borderWidth:2,pointBackgroundColor:["#FF6B6B", "#4ECDC4", "#FFE66D", "#A78BFA", "#F97316", "#06B6D4"],pointBorderColor:'#0a0a14',pointRadius:5,pointBorderWidth:2}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:1.5,plugins:{legend:{display:false}},scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#1a1a3a'},angleLines:{color:'#1a1a3a'},pointLabels:{color:'#6a6a8a',font:{size:9,family:"JetBrains Mono"}}}}}});
+</script>
+</body></html>

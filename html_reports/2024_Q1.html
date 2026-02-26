@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Q1 2024 — Mortgage Market Recap</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--bg:#0a0a14;--s1:#12122a;--s2:#1a1a3a;--s3:#222250;--bd:#2a2a55;--tx:#d8d8e8;--dm:#6a6a8a;--ac:#4ECDC4;--r:#FF6B6B;--y:#FFE66D;--p:#A78BFA;--o:#F97316;--cy:#06B6D4;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;line-height:1.6}
+.wrap{max-width:1400px;margin:0 auto;padding:20px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd);margin-bottom:16px}
+.nl{color:var(--ac);text-decoration:none;font-size:12px;font-family:'JetBrains Mono',monospace}
+.nl:hover{text-decoration:underline}
+.nt{color:var(--dm);font-size:10px;text-transform:uppercase;letter-spacing:2px}
+.hdr{text-align:center;padding:20px 0 16px}
+.hdr h1{font-size:42px;font-weight:800;background:linear-gradient(135deg,var(--ac),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr .sub{font-size:12px;color:var(--dm);font-family:'JetBrains Mono',monospace}
+/* Big numbers row */
+.bigs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.big{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px;text-align:center}
+.big .v{font-size:32px;font-weight:800;font-family:'JetBrains Mono',monospace}
+.big .l{font-size:10px;color:var(--dm);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+/* Cards */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.g23{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:12px}
+.c{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.c .ct{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dm);font-weight:600;margin-bottom:10px}
+.full{grid-column:1/-1}
+canvas{width:100%!important;max-height:280px}
+/* Events */
+.ev{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:13px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ac);flex-shrink:0;margin-top:6px}
+/* Metrics grid */
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mi{display:flex;justify-content:space-between;padding:5px 8px;border-radius:4px;background:var(--s2)}
+.mi .mk{font-size:11px;color:var(--dm);font-family:'JetBrains Mono',monospace}
+.mi .mv{font-size:12px;font-weight:600;font-family:'JetBrains Mono',monospace}
+/* Loop indicators */
+.loops{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.lp{text-align:center;background:var(--s2);border-radius:8px;padding:10px 4px}
+.lp .ln{font-size:8px;color:var(--dm);line-height:1.2;margin-top:4px}
+.lp .ls{font-size:9px;font-weight:700;font-family:'JetBrains Mono',monospace}
+/* Narrative */
+.narr{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:24px;margin-bottom:16px}
+.narr .sh{font-size:17px;font-weight:700;color:var(--ac);margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--bd)}
+.narr .sh:first-child{margin-top:0}
+.narr p{margin-bottom:8px;font-size:13.5px;line-height:1.7}
+.narr .bq{border-left:3px solid var(--p);padding:10px 14px;margin:14px 0;background:rgba(167,139,250,0.06);border-radius:0 8px 8px 0;font-style:italic;color:var(--dm);font-size:12.5px;line-height:1.65}
+.narr .bq strong{color:var(--ac);font-style:normal}
+.narr .disc{font-size:10px;color:var(--dm);font-style:italic;margin-top:16px}
+.ft{text-align:center;padding:16px;color:var(--dm);font-size:10px;border-top:1px solid var(--bd);margin-top:16px;font-family:'JetBrains Mono',monospace}
+@media(max-width:900px){.bigs,.g2,.g3,.g23{grid-template-columns:1fr}.loops{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
+<div class="wrap">
+<div class="nav"><a href="2023_Q4.html" class="nl">← Q4 2023</a><a href="index.html" class="nt">48-Quarter Mortgage Market Recap Series</a><a href="2024_Q2.html" class="nl">Q2 2024 →</a></div>
+<div class="hdr"><h1>Q1 2024</h1><div class="sub">Agency MBS Strategy — Quarterly Market Recap</div></div>
+
+<!-- Big Numbers -->
+<div class="bigs">
+<div class="big"><div class="v" style="color:var(--r)">6.74%</div><div class="l">30yr Mortgage</div></div>
+<div class="big"><div class="v" style="color:var(--cy)">4.20%</div><div class="l">10yr Treasury</div></div>
+<div class="big"><div class="v" style="color:var(--y)">42bp</div><div class="l">MBS OAS</div></div>
+<div class="big"><div class="v" style="color:var(--r)">-30bp</div><div class="l">2s10s Curve</div></div>
+<div class="big"><div class="v" style="color:var(--p)">$340B</div><div class="l">Origination</div></div>
+</div>
+
+<!-- Row 1: Rates History + Yield Curve -->
+<div class="g23">
+<div class="c"><div class="ct">Rate Environment — Historical</div><canvas id="chRates" height="200"></canvas></div>
+<div class="c"><div class="ct">Yield Curve Snapshot</div><canvas id="chYC" height="200"></canvas></div>
+</div>
+
+<!-- Row 2: OAS + 2s10s -->
+<div class="g2">
+<div class="c"><div class="ct">MBS OAS (bp) — Historical</div><canvas id="chOAS" height="180"></canvas></div>
+<div class="c"><div class="ct">2s10s Curve (bp) — Historical</div><canvas id="chCurve" height="180"></canvas></div>
+</div>
+
+<!-- Row 3: Origination + Fed BS -->
+<div class="g2">
+<div class="c"><div class="ct">Origination Volume ($B) — Purchase vs Refi</div><canvas id="chOrig" height="180"></canvas></div>
+<div class="c"><div class="ct">Fed MBS Holdings ($T) & Gross Issuance ($B)</div><canvas id="chFed" height="180"></canvas></div>
+</div>
+
+<!-- Row 4: Housing + Prepayments -->
+<div class="g2">
+<div class="c"><div class="ct">Housing — Sales, Starts, HPA</div><canvas id="chHousing" height="180"></canvas></div>
+<div class="c"><div class="ct">Prepayment Speeds (CPR) — Historical</div><canvas id="chCPR" height="180"></canvas></div>
+</div>
+
+<!-- Row 5: GSE Earnings + Feedback Loops -->
+<div class="g2">
+<div class="c"><div class="ct">GSE Net Income ($B)</div><canvas id="chGSE" height="180"></canvas></div>
+<div class="c"><div class="ct">Six Feedback Loops — Activation Radar</div><canvas id="chRadar" height="200"></canvas></div>
+</div>
+
+<!-- Row 6: Events + Metrics + Loops -->
+<div class="g3">
+<div class="c"><div class="ct">Key Events</div><div class="ev"><span class="dot"></span>Rate cut hopes cool</div><div class="ev"><span class="dot"></span>Strong jobs data</div><div class="ev"><span class="dot"></span>CRE stress resurfaces</div><div class="ev"><span class="dot"></span>Non-QM issuance grows</div></div>
+<div class="c"><div class="ct">Key Metrics</div><div class="mg">
+<div class="mi"><span class="mk">30yr Fixed</span><span class="mv">6.74%</span></div>
+<div class="mi"><span class="mk">15yr Fixed</span><span class="mv">5.95%</span></div>
+<div class="mi"><span class="mk">10yr UST</span><span class="mv">4.20%</span></div>
+<div class="mi"><span class="mk">Fed Funds</span><span class="mv">5.25-5.50</span></div>
+<div class="mi"><span class="mk">MBS OAS</span><span class="mv">42bp</span></div>
+<div class="mi"><span class="mk">2s10s</span><span class="mv">-30bp</span></div>
+<div class="mi"><span class="mk">Coupon</span><span class="mv">6.0%</span></div>
+<div class="mi"><span class="mk">HPA YoY</span><span class="mv">6.0%</span></div>
+<div class="mi"><span class="mk">Sales</span><span class="mv">3.9M</span></div>
+<div class="mi"><span class="mk">Starts</span><span class="mv">1.42M</span></div>
+<div class="mi"><span class="mk">Refi Share</span><span class="mv">28%</span></div>
+<div class="mi"><span class="mk">Fed MBS</span><span class="mv">$2.40T</span></div>
+<div class="mi"><span class="mk">Fannie NI</span><span class="mv">$4.1B</span></div>
+<div class="mi"><span class="mk">Freddie NI</span><span class="mv">$2.5B</span></div>
+<div class="mi"><span class="mk">Pay-ups</span><span class="mv">Zero</span></div>
+<div class="mi"><span class="mk">Avg CPR</span><span class="mv">5</span></div>
+</div></div>
+<div class="c"><div class="ct">Feedback Loop Status</div><div class="loops"><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="19" fill="#FF6B6B" opacity="0.70"/><circle cx="25" cy="25" r="11" fill="#FF6B6B" opacity="1.00"/></svg><div class="ln">Fed BS ↔ MBS Basis</div><div class="ls" style="color:#FF6B6B">Contracting</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="8" fill="#4ECDC4" opacity="0.15"/><circle cx="25" cy="25" r="4" fill="#4ECDC4" opacity="0.10"/></svg><div class="ln">Rates ↔ Prepay ↔ Cvx</div><div class="ls" style="color:#4ECDC4">Extinct</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="22" fill="#FFE66D" opacity="0.90"/><circle cx="25" cy="25" r="13" fill="#FFE66D" opacity="1.00"/></svg><div class="ln">Lock-in ↔ Inventory</div><div class="ls" style="color:#FFE66D">Peak</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="10" fill="#A78BFA" opacity="0.15"/><circle cx="25" cy="25" r="5" fill="#A78BFA" opacity="0.30"/></svg><div class="ln">Orig ↔ Supply ↔ Basis</div><div class="ls" style="color:#A78BFA">Trough</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="16" fill="#F97316" opacity="0.55"/><circle cx="25" cy="25" r="9" fill="#F97316" opacity="1.00"/></svg><div class="ln">CRT ↔ GSE Capital</div><div class="ls" style="color:#F97316">Recovering</div></div><div class="lp"><svg viewBox="0 0 50 50" width="44" height="44"><circle cx="25" cy="25" r="16" fill="#06B6D4" opacity="0.50"/><circle cx="25" cy="25" r="9" fill="#06B6D4" opacity="1.00"/></svg><div class="ln">Non-Agency Recovery</div><div class="ls" style="color:#06B6D4">Growing</div></div></div></div></div>
+
+<!-- Narrative -->
+<div class="narr"><div class="ct" style="margin-bottom:12px">Full Quarterly Recap</div><h3 class="sh">Market Snapshot</h3>
+<p>|--------|---------|</p>
+<h3 class="sh">Rates & Yield Curve</h3>
+<p>The euphoria from Q4 2023's dovish pivot ran headfirst into reality in Q1 2024. After entering the year pricing in six to seven 25bp cuts, markets spent Q1 systematically repricing to just three. The 10-year Treasury, which had closed 2023 at 3.88%, backed up to 4.20% on average and touched 4.35% by late March as sticky inflation prints (January CPI at 3.1% headline, core services refusing to cooperate) forced the "immaculate disinflation" crowd into retreat. The 30-year mortgage rate averaged 6.82%—barely better than Q4 2023's 7.44%—as primary-secondary spreads remained wider than historical norms, reflecting originator caution and capacity reduction.</p>
+<p>The Fed held steady at 5.25-5.50% across both the January 31 and March 20 FOMC meetings, exactly as expected. But the messaging shifted meaningfully: Powell's January press conference emphasized patience, and the March dot plot revised 2024 cut expectations from three to... still three, but with a higher terminal rate. The market had overshot in December and was now crawling back to the Fed's actual guidance. The 2s10s curve stayed inverted at roughly -35bps, though we saw periodic flirtations with -25bps as the belly cheapened on supply. The curve shape told us the market still expected cuts but had pushed timing from March to June, then tentatively to September.</p>
+<p>MBS current coupon OAS traded in a 35-42bps range, modestly wider than the year-end tights but well inside October 2023's 50bps+ blowout. The basis held up largely on technicals: continued Fed QT at $35B/month MBS cap, minimal net supply, and real money accounts content to own duration at what they considered cycle-peak yields.</p>
+<h3 class="sh">Agency MBS Market</h3>
+<p>Gross agency issuance of ~$190B was consistent with recent quarters—still well below the $400-500B+ pace of 2020-2021 but showing marginal sequential improvement as purchase activity stabilized. Production remained concentrated in UMBS 6.0% and 6.5% coupons, with 5.5%s starting to become relevant for better-credit borrowers. Outstanding agency MBS stock held steady at ~$8.9T.</p>
+<p>TBA liquidity was adequate but not robust. Rolls were generally trading at or near fair value, with occasional specialness in 30yr 6.0% TBAs driven by CMO demand and the natural scarcity of that coupon in a 6.8% rate environment. Specified pool pay-ups remained effectively zero—still no story that justifies paying up when nothing is prepaying. Low loan balance, New York, investor—all irrelevant when the S-curve is flat as Kansas.</p>
+<p>Fed MBS holdings continued their passive runoff, declining from ~$2.44T at year-end to approximately $2.37T by end-Q1, as principal payments (anemic as they were) exceeded the zero reinvestment pace. The market has fully absorbed QT's mechanical impact; the question now is when the Fed might slow the Treasury cap (spoiler: they will in June).</p>
+<h3 class="sh">GSE & Regulatory</h3>
+<p>Fannie Mae reported Q1 net income of approximately $4.3B, while Freddie Mac posted ~$2.8B. Both remain highly profitable in the current environment: elevated g-fees (~58bps average), pristine credit quality, and strong net interest margins on retained portfolios. Combined equity stood near $125B—meaningful but still well below the capital levels required under the 2020 enterprise regulatory capital framework (ERCF) rule.</p>
+<p>The conforming loan limit for 2024 was set at $766,550, a 5.6% increase reflecting 2023's home price appreciation. No g-fee changes in Q1, though FHFA Director Thompson continued signaling interest in reducing cross-subsidization and returning to more risk-based pricing. The adverse market fee controversy from 2021 remained a policy scar.</p>
+<p>CRT issuance was constructive in Q1, with combined CAS/STACR volume of ~$3B. Spreads tightened modestly alongside the broader credit market rally, with CRT M2 tranches trading around DM+200-225bps. The pristine collateral quality—average FICO above 750, LTVs in the low 70s, serious delinquency rates near record lows—continues to make CRT a compelling relative value story versus corporate credit.</p>
+<h3 class="sh">Origination & Primary Market</h3>
+<p>Total origination volume came in around $350B for Q1, split approximately $175B purchase / $175B refi, with refi share at ~33% per MBA data. That refi number includes a meaningful cash-out component as borrowers continued tapping 2020-2023 vintage equity at current rates. Rate/term refi activity remained limited to the small cohort of 2023 vintage borrowers who locked above 7.5%.</p>
+<p>Credit quality remained pristine: average origination FICO of ~753, average LTV of ~76%, DTI around 36%. The credit box isn't tight because lenders are restrictive—it's tight because only strong borrowers can qualify at these rates and prices. Non-QM origination showed continued growth, estimated at ~$25B for Q1, as private lenders served the bank statement, DSCR investor, and jumbo segments that agencies don't cover efficiently. PLS issuance (non-agency RMBS) totaled ~$15B for Q1.</p>
+<p>Originator consolidation continued: margin compression from 2022 was still forcing exits and M&A. Pennymac, United Wholesale, and loanDepot held share while smaller IMBs struggled with negative operating margins.</p>
+<h3 class="sh">Prepayment & Convexity</h3>
+<p>CPR trends across the coupon stack remained subdued. Aggregate 30yr agency speeds ran at approximately 5.5-6.0 CPR—essentially pure housing turnover with negligible refi activity. The S-curve was effectively dead: even 200bps+ in-the-money coupons (2.5s, 3.0s) showed burnout-suppressed speeds of 4-5 CPR as the lock-in effect overwhelmed any incentive to move. Higher coupons (5.5%+) prepaid at 6-8 CPR, barely above turnover, reflecting the simple math that you don't refinance a 5.5% mortgage into a 6.8% mortgage.</p>
+<p>Convexity was well-behaved in Q1. Rate moves stayed within ranges that didn't trigger dramatic duration extension or contraction, and implied volatility declined modestly. Duration on UMBS 6.0%—the de facto benchmark—sat at approximately 6.0 years, relatively stable quarter-over-quarter. No notable convexity events; this was a low-vol grinding environment after Q4's fireworks.</p>
+<h3 class="sh">Housing & Credit</h3>
+<p>The housing market showed tentative signs of thawing from its 2023 deep freeze. Existing home sales ticked up to 4.00M SAAR—still near 30-year lows but marginally better than Q4's 3.8M. The lock-in effect remained the dominant force: with ~80% of outstanding mortgages below 5%, turnover was structurally impaired. New home sales showed relative strength at 660K SAAR as builders captured marginal demand through rate buydowns and incentives that existing sellers couldn't match.</p>
+<p>Housing starts ran at 1.42M SAAR, consistent with recent quarters. Months of supply edged up to 3.6 months from 3.5—moving in the right direction but still well below balanced market levels. Case-Shiller national HPI posted +6.4% YoY, re-accelerating as the supply drought overpowered affordability headwinds. The divergence between prices (up) and volume (down) remains the defining feature of this housing market.</p>
+<p>Delinquency rates stayed near record lows at 3.3% (30+ days, MBA NDS), reflecting the fortress credit quality of post-GFC origination vintages and strong labor markets. Foreclosure starts were negligible. FHA/VA share of originations held steady at ~25%, with FHA particularly important for first-time buyers navigating affordability constraints.</p>
+<h3 class="sh">Non-Agency & Structured Products</h3>
+<p>CMBS issuance picked up modestly in Q1, with ~$20B in conduit issuance, though the CRE market remained under significant stress from office vacancies and refinancing challenges. BBB CMBS spreads were ~350bps, reflecting ongoing repricing of commercial real estate risk.</p>
+<p>Non-agency RMBS issuance of ~$15B was concentrated in prime jumbo, non-QM, and CRT/SFR rental deals. CLO issuance was robust at ~$40B for Q1 as leveraged loan demand held up. Agency CMO issuance tracked at ~$35B, with demand for PAC structures and floaters as investors positioned for a rate-cutting cycle that still felt months away.</p>
+<h3 class="sh">Key Events & Narrative</h3>
+<p><strong>The great expectations reset.</strong> Q1 2024's defining dynamic was the systematic dismantling of December 2023's rate cut euphoria. Markets entered January pricing 6-7 cuts; they exited March pricing 3, with the timing pushed from Q1 to Q3. Sticky services inflation was the villain, but the real lesson was that markets had front-run the Fed's pivot and the Fed wasn't in a rush to validate. For MBS, this meant the basis held in a relatively tight range—no blowout, no violent tightening, just rangebound trading as the market recalibrated.</p>
+<p><strong>Housing defied gravity again.</strong> Prices up 6.4% YoY with sales at multi-decade lows. The lock-in effect isn't just a headwind—it's the entire weather system. New construction is the only release valve, and builders know it, offering 6% rate buydowns that effectively create a two-tier market: subsidized new homes versus full-freight existing homes.</p>
+<p><strong>We're in the "when, not if" phase of the rate cycle.</strong> The Fed will cut—the debate is timing and magnitude. For MBS, the key question is whether we get a "good" cutting cycle (soft landing, gradual normalization, supportive for spreads) or a "bad" one (recession-driven, spread-widening, forced selling). Q1's data lean toward the former, which is constructive for carry-oriented MBS positions.</p>
+<p><em>March 31, 2024</em></p></div>
+<div class="ft">CMO Agent — Mortgage Market Recap Series — Q1 2024 — 48-Quarter Corpus Q1 2014–Q4 2025</div>
+</div>
+
+<script>
+const L=["Q1 2014", "Q2 2014", "Q3 2014", "Q4 2014", "Q1 2015", "Q2 2015", "Q3 2015", "Q4 2015", "Q1 2016", "Q2 2016", "Q3 2016", "Q4 2016", "Q1 2017", "Q2 2017", "Q3 2017", "Q4 2017", "Q1 2018", "Q2 2018", "Q3 2018", "Q4 2018", "Q1 2019", "Q2 2019", "Q3 2019", "Q4 2019", "Q1 2020", "Q2 2020", "Q3 2020", "Q4 2020", "Q1 2021", "Q2 2021", "Q3 2021", "Q4 2021", "Q1 2022", "Q2 2022", "Q3 2022", "Q4 2022", "Q1 2023", "Q2 2023", "Q3 2023", "Q4 2023", "Q1 2024"];
+const cDef={responsive:true,maintainAspectRatio:true,aspectRatio:2.2,plugins:{legend:{display:true,labels:{color:'#6a6a8a',font:{size:10,family:"JetBrains Mono"}}}},scales:{x:{ticks:{color:'#4a4a6a',font:{size:8},maxRotation:45,autoSkip:true,maxTicksLimit:12},grid:{color:'#1a1a3a'}},y:{ticks:{color:'#6a6a8a',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'}}}};
+const cDefNoLeg={...cDef,plugins:{legend:{display:false}}};
+
+// 1. Rates
+new Chart('chRates',{type:'line',data:{labels:L,datasets:[
+{label:'30yr Mtg',data:[4.34, 4.16, 4.12, 3.93, 3.72, 3.84, 3.91, 3.88, 3.68, 3.57, 3.46, 3.77, 4.2, 4.01, 3.89, 3.92, 4.22, 4.54, 4.63, 4.87, 4.37, 4.07, 3.68, 3.68, 3.45, 3.23, 2.89, 2.77, 2.81, 2.96, 2.87, 3.07, 3.76, 5.11, 5.51, 6.42, 6.36, 6.51, 7.07, 7.04, 6.74],borderColor:'#FF6B6B',backgroundColor:'rgba(255,107,107,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},
+{label:'15yr',data:[3.4, 3.25, 3.23, 3.15, 3.04, 3.1, 3.15, 3.12, 2.98, 2.84, 2.77, 3.07, 3.42, 3.27, 3.17, 3.25, 3.62, 3.99, 4.07, 4.28, 3.81, 3.51, 3.15, 3.14, 2.93, 2.72, 2.4, 2.31, 2.27, 2.28, 2.15, 2.35, 3.01, 4.31, 4.72, 5.68, 5.57, 5.76, 6.35, 6.33, 5.95],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[4,2]},
+{label:'10yr UST',data:[2.72, 2.62, 2.5, 2.27, 1.97, 2.17, 2.22, 2.19, 1.92, 1.75, 1.56, 2.14, 2.43, 2.28, 2.24, 2.37, 2.76, 2.92, 2.93, 3.03, 2.55, 2.33, 1.79, 1.78, 1.38, 0.69, 0.66, 0.84, 1.34, 1.57, 1.32, 1.53, 1.88, 2.93, 3.1, 3.62, 3.6, 3.6, 4.25, 4.44, 4.2],borderColor:'#4ECDC4',backgroundColor:'rgba(78,205,196,0.08)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},
+{label:'Fed Funds',data:[0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5, 0.75, 1.0, 1.25, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.5, 2.5, 2.0, 1.75, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.5, 1.75, 3.25, 4.5, 5.0, 5.25, 5.5, 5.5, 5.5],borderColor:'#FFE66D',backgroundColor:'transparent',tension:0.1,pointRadius:0,borderWidth:1.5,stepped:true}
+]},options:{...cDef,scales:{...cDef.scales,y:{...cDef.scales.y,title:{display:true,text:'Rate (%)',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 2. Yield Curve
+new Chart('chYC',{type:'line',data:{labels:['2yr','5yr','10yr','30yr'],datasets:[{label:'Yield Curve',data:[4.5, 4.35, 4.2, 4.48],borderColor:'#4ECDC4',backgroundColor:'rgba(78,205,196,0.15)',fill:true,tension:0.4,pointRadius:6,pointBackgroundColor:'#4ECDC4',borderWidth:3,pointBorderColor:'#0a0a14',pointBorderWidth:2}]},options:{...cDefNoLeg,scales:{x:{ticks:{color:'#6a6a8a',font:{size:11,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'}},y:{ticks:{color:'#6a6a8a',font:{size:10,family:"JetBrains Mono"},callback:v=>v.toFixed(1)+'%'},grid:{color:'#1a1a3a'}}}}});
+
+// 3. OAS
+new Chart('chOAS',{type:'bar',data:{labels:L,datasets:[{label:'OAS (bp)',data:[25, 22, 20, 18, 15, 17, 18, 16, 14, 12, 11, 18, 16, 15, 14, 15, 28, 30, 32, 55, 35, 30, 25, 22, 80, 40, 25, 22, 18, 14, 10, 12, 42, 48, 58, 50, 35, 38, 42, 45, 42],backgroundColor:([25, 22, 20, 18, 15, 17, 18, 16, 14, 12, 11, 18, 16, 15, 14, 15, 28, 30, 32, 55, 35, 30, 25, 22, 80, 40, 25, 22, 18, 14, 10, 12, 42, 48, 58, 50, 35, 38, 42, 45, 42]).map(v=>v>50?'rgba(255,107,107,0.7)':v>30?'rgba(255,230,109,0.7)':'rgba(78,205,196,0.7)'),borderRadius:2}]},options:cDefNoLeg});
+
+// 4. 2s10s
+new Chart('chCurve',{type:'line',data:{labels:L,datasets:[{label:'2s10s (bp)',data:[230, 220, 210, 175, 140, 160, 150, 125, 110, 95, 85, 125, 115, 95, 85, 60, 58, 40, 30, 15, 15, 25, 5, 20, 30, 50, 55, 75, 130, 135, 115, 100, 20, 5, -40, -55, -90, -80, -60, -35, -30],borderColor:'#FFE66D',backgroundColor:'rgba(255,230,109,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2},{label:'Zero',data:Array(41).fill(0),borderColor:'rgba(255,107,107,0.5)',borderWidth:1,borderDash:[4,4],pointRadius:0}]},options:cDef});
+
+// 5. Origination
+new Chart('chOrig',{type:'bar',data:{labels:L,datasets:[{label:'Purchase',data:[117.0, 148.8, 150.0, 133.4, 134.4, 166.5, 168.0, 165.0, 159.6, 180.0, 198.0, 192.0, 175.0, 188.0, 184.5, 146.2, 145.7, 170.5, 180.0, 163.8, 139.5, 168.0, 196.1, 192.0, 174.0, 240.0, 374.0, 367.5, 388.5, 385.0, 367.5, 296.0, 325.0, 292.5, 262.2, 230.4, 213.0, 223.2, 240.9, 229.4, 244.8],backgroundColor:'rgba(78,205,196,0.7)',borderRadius:2},{label:'Refi',data:[143.0, 161.2, 150.0, 156.6, 185.6, 203.5, 182.0, 165.0, 220.4, 270.0, 352.0, 208.0, 175.0, 212.0, 225.5, 193.8, 164.3, 139.5, 120.0, 96.2, 170.5, 232.0, 333.9, 288.0, 406.0, 510.0, 726.0, 682.5, 661.5, 715.0, 682.5, 504.0, 325.0, 157.5, 117.8, 89.6, 87.0, 86.8, 89.1, 80.6, 95.2],backgroundColor:'rgba(167,139,250,0.7)',borderRadius:2}]},options:{...cDef,scales:{...cDef.scales,x:{...cDef.scales.x,stacked:true},y:{...cDef.scales.y,stacked:true,title:{display:true,text:'$B',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 6. Fed + Issuance
+new Chart('chFed',{type:'line',data:{labels:L,datasets:[{label:'Fed MBS ($T)',data:[1.55, 1.63, 1.7, 1.74, 1.74, 1.74, 1.74, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.76, 1.76, 1.75, 1.72, 1.68, 1.64, 1.63, 1.6, 1.56, 1.53, 1.7, 1.92, 2.1, 2.3, 2.44, 2.55, 2.62, 2.66, 2.74, 2.72, 2.68, 2.64, 2.57, 2.52, 2.47, 2.44, 2.4],borderColor:'#FF6B6B',backgroundColor:'rgba(255,107,107,0.12)',fill:true,tension:0.3,pointRadius:1,borderWidth:2,yAxisID:'y'},{label:'Gross Issuance ($B)',data:[230, 280, 260, 250, 270, 310, 300, 280, 310, 380, 500, 340, 290, 330, 340, 300, 310, 290, 280, 230, 300, 340, 400, 360, 400, 480, 550, 520, 530, 520, 500, 420, 400, 300, 230, 200, 200, 200, 210, 190, 210],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[4,2],yAxisID:'y1'}]},options:{...cDef,scales:{x:cDef.scales.x,y:{position:'left',ticks:{color:'#FF6B6B',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'},title:{display:true,text:'Fed MBS ($T)',color:'#FF6B6B',font:{size:10}}},y1:{position:'right',ticks:{color:'#A78BFA',font:{size:9,family:"JetBrains Mono"}},grid:{display:false},title:{display:true,text:'Issuance ($B)',color:'#A78BFA',font:{size:10}}}}}});
+
+// 7. Housing
+new Chart('chHousing',{type:'line',data:{labels:L,datasets:[{label:'HPA YoY%',data:[11.0, 10.3, 6.7, 4.7, 4.4, 4.9, 5.1, 5.4, 5.3, 5.2, 5.1, 5.6, 5.9, 5.8, 6.1, 6.3, 6.5, 6.4, 5.8, 4.7, 3.7, 3.4, 3.5, 3.5, 3.9, 4.2, 5.8, 9.5, 13.3, 16.6, 19.8, 18.8, 20.0, 18.7, 13.0, 7.7, 2.0, 0.7, 2.1, 4.8, 6.0],borderColor:'#F97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3,pointRadius:1,borderWidth:2,yAxisID:'y'},{label:'Sales (M)',data:[4.6, 4.9, 5.1, 5.0, 4.9, 5.3, 5.5, 5.2, 5.3, 5.5, 5.5, 5.5, 5.6, 5.5, 5.4, 5.5, 5.5, 5.4, 5.3, 5.0, 5.2, 5.3, 5.4, 5.5, 5.3, 4.5, 5.8, 6.5, 6.2, 5.9, 5.9, 6.1, 5.8, 5.1, 4.8, 4.2, 4.0, 4.1, 4.0, 3.9, 3.9],borderColor:'#4ECDC4',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,yAxisID:'y1'},{label:'Starts (M)',data:[0.92, 0.99, 1.02, 1.05, 0.98, 1.11, 1.15, 1.13, 1.15, 1.16, 1.16, 1.22, 1.24, 1.22, 1.17, 1.26, 1.32, 1.27, 1.24, 1.18, 1.2, 1.25, 1.28, 1.33, 1.46, 1.1, 1.39, 1.58, 1.58, 1.59, 1.57, 1.64, 1.73, 1.59, 1.44, 1.4, 1.37, 1.42, 1.35, 1.41, 1.42],borderColor:'#A78BFA',backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:1.5,borderDash:[3,3],yAxisID:'y1'}]},options:{...cDef,scales:{x:cDef.scales.x,y:{position:'left',ticks:{color:'#F97316',font:{size:9,family:"JetBrains Mono"}},grid:{color:'#1a1a3a'},title:{display:true,text:'HPA %',color:'#F97316',font:{size:10}}},y1:{position:'right',ticks:{color:'#4ECDC4',font:{size:9,family:"JetBrains Mono"}},grid:{display:false},title:{display:true,text:'SAAR (M)',color:'#4ECDC4',font:{size:10}}}}}});
+
+// 8. CPR
+new Chart('chCPR',{type:'line',data:{labels:L,datasets:[{label:'Avg CPR',data:[8, 9, 8, 9, 12, 11, 10, 9, 14, 18, 25, 15, 10, 12, 13, 9, 8, 7, 6, 5, 8, 12, 22, 20, 18, 28, 38, 35, 32, 30, 28, 22, 12, 6, 4, 4, 5, 5, 4, 4, 5],borderColor:'#06B6D4',backgroundColor:'rgba(6,182,212,0.15)',fill:true,tension:0.3,pointRadius:2,borderWidth:2.5,pointBackgroundColor:'#06B6D4'}]},options:{...cDefNoLeg,scales:{...cDef.scales,y:{...cDef.scales.y,title:{display:true,text:'CPR',color:'#06B6D4',font:{size:10}}}}}});
+
+// 9. GSE
+new Chart('chGSE',{type:'bar',data:{labels:L,datasets:[{label:'Fannie NI',data:[3.1, 3.7, 3.9, 3.5, 3.0, 4.1, 3.8, 3.4, 2.9, 3.4, 3.1, 2.7, 3.3, 3.5, 3.5, -6.5, 4.3, 3.8, 4.0, 3.2, 3.5, 3.8, 4.0, 3.8, 0.5, 2.5, 4.2, 4.5, 5.1, 5.3, 5.9, 6.9, 4.0, 3.5, 3.2, 2.8, 3.8, 4.0, 4.4, 4.5, 4.1],backgroundColor:'rgba(78,205,196,0.7)',borderRadius:2},{label:'Freddie NI',data:[1.8, 2.0, 2.2, 1.9, 1.7, 2.3, 2.1, 1.9, 1.6, 1.9, 2.0, 1.5, 1.9, 2.0, 2.0, -3.0, 2.4, 2.1, 2.2, 1.8, 2.0, 2.2, 2.3, 2.1, 0.3, 1.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.3, 2.8, 2.0, 1.8, 1.5, 2.4, 2.5, 2.7, 2.8, 2.5],backgroundColor:'rgba(167,139,250,0.7)',borderRadius:2}]},options:{...cDef,scales:{...cDef.scales,x:{...cDef.scales.x,stacked:true},y:{...cDef.scales.y,stacked:true,title:{display:true,text:'$B',color:'#6a6a8a',font:{size:10}}}}}});
+
+// 10. Radar
+new Chart('chRadar',{type:'radar',data:{labels:["Fed BS \u2194 MBS Basis", "Rates \u2194 Prepay \u2194 Cvx", "Lock-in \u2194 Inventory", "Orig \u2194 Supply \u2194 Basis", "CRT \u2194 GSE Capital", "Non-Agency Recovery"],datasets:[{label:'Activation',data:[70, 5, 90, 15, 55, 50],backgroundColor:'rgba(78,205,196,0.2)',borderColor:'#4ECDC4',borderWidth:2,pointBackgroundColor:["#FF6B6B", "#4ECDC4", "#FFE66D", "#A78BFA", "#F97316", "#06B6D4"],pointBorderColor:'#0a0a14',pointRadius:5,pointBorderWidth:2}]},options:{responsive:true,maintainAspectRatio:true,aspectRatio:1.5,plugins:{legend:{display:false}},scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#1a1a3a'},angleLines:{color:'#1a1a3a'},pointLabels:{color:'#6a6a8a',font:{size:9,family:"JetBrains Mono"}}}}}});
+</script>
+</body></html>
