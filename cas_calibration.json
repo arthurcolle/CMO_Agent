@@ -1,0 +1,316 @@
+{
+  "total_loans": 2000000,
+  "avg_fico": 752.0,
+  "avg_ltv": 82.0,
+  "avg_rate": 4.055,
+  "prepaid_pct": 76.13,
+  "defaulted_pct": 0.122,
+  "by_coupon": {
+    "<4%": {
+      "count": 894460,
+      "prepaid": 643777,
+      "defaulted": 626,
+      "prepaid_pct": 71.97,
+      "default_pct": 0.07,
+      "avg_fico": 766.0,
+      "avg_ltv": 81.5,
+      "avg_rate": 3.712,
+      "avg_upb": 258600.0
+    },
+    "4-5%": {
+      "count": 1074779,
+      "prepaid": 854446,
+      "defaulted": 1724,
+      "prepaid_pct": 79.5,
+      "default_pct": 0.16,
+      "avg_fico": 742.0,
+      "avg_ltv": 82.4,
+      "avg_rate": 4.311,
+      "avg_upb": 228575.0
+    },
+    "5-6%": {
+      "count": 30719,
+      "prepaid": 24378,
+      "defaulted": 99,
+      "prepaid_pct": 79.36,
+      "default_pct": 0.322,
+      "avg_fico": 705.0,
+      "avg_ltv": 82.4,
+      "avg_rate": 5.118,
+      "avg_upb": 175023.0
+    },
+    "6-7%": {
+      "count": 42,
+      "prepaid": 31,
+      "defaulted": 0,
+      "prepaid_pct": 73.81,
+      "default_pct": 0.0,
+      "avg_fico": 678.0,
+      "avg_ltv": 85.8,
+      "avg_rate": 6.077,
+      "avg_upb": 120738.0
+    }
+  },
+  "by_fico": {
+    "<660": {
+      "count": 72225,
+      "prepaid": 54022,
+      "defaulted": 324,
+      "prepaid_pct": 74.8,
+      "default_pct": 0.449,
+      "avg_fico": 643.0,
+      "avg_ltv": 79.8,
+      "avg_rate": 4.522,
+      "avg_upb": 210193.0
+    },
+    "660-700": {
+      "count": 222559,
+      "prepaid": 170267,
+      "defaulted": 660,
+      "prepaid_pct": 76.5,
+      "default_pct": 0.297,
+      "avg_fico": 682.0,
+      "avg_ltv": 82.1,
+      "avg_rate": 4.316,
+      "avg_upb": 223998.0
+    },
+    "700-740": {
+      "count": 408314,
+      "prepaid": 315893,
+      "defaulted": 662,
+      "prepaid_pct": 77.37,
+      "default_pct": 0.162,
+      "avg_fico": 720.0,
+      "avg_ltv": 83.1,
+      "avg_rate": 4.115,
+      "avg_upb": 238362.0
+    },
+    "740-780": {
+      "count": 604188,
+      "prepaid": 464617,
+      "defaulted": 506,
+      "prepaid_pct": 76.9,
+      "default_pct": 0.084,
+      "avg_fico": 761.0,
+      "avg_ltv": 82.8,
+      "avg_rate": 3.991,
+      "avg_upb": 245473.0
+    },
+    ">780": {
+      "count": 692714,
+      "prepaid": 517833,
+      "defaulted": 297,
+      "prepaid_pct": 74.75,
+      "default_pct": 0.043,
+      "avg_fico": 797.0,
+      "avg_ltv": 80.8,
+      "avg_rate": 3.943,
+      "avg_upb": 247844.0
+    }
+  },
+  "by_ltv": {
+    "<70": {
+      "count": 209260,
+      "prepaid": 156040,
+      "defaulted": 116,
+      "prepaid_pct": 74.57,
+      "default_pct": 0.055,
+      "avg_fico": 754.0,
+      "avg_ltv": 65.5,
+      "avg_rate": 3.976,
+      "avg_upb": 257861.0
+    },
+    "70-80": {
+      "count": 474358,
+      "prepaid": 360583,
+      "defaulted": 349,
+      "prepaid_pct": 76.01,
+      "default_pct": 0.074,
+      "avg_fico": 753.0,
+      "avg_ltv": 74.4,
+      "avg_rate": 4.086,
+      "avg_upb": 251540.0
+    },
+    "80-90": {
+      "count": 670153,
+      "prepaid": 507216,
+      "defaulted": 616,
+      "prepaid_pct": 75.69,
+      "default_pct": 0.092,
+      "avg_fico": 754.0,
+      "avg_ltv": 81.2,
+      "avg_rate": 4.061,
+      "avg_upb": 238036.0
+    },
+    "90-95": {
+      "count": 222693,
+      "prepaid": 172768,
+      "defaulted": 309,
+      "prepaid_pct": 77.58,
+      "default_pct": 0.139,
+      "avg_fico": 753.0,
+      "avg_ltv": 90.6,
+      "avg_rate": 4.018,
+      "avg_upb": 249255.0
+    },
+    "95-100": {
+      "count": 423536,
+      "prepaid": 326025,
+      "defaulted": 1059,
+      "prepaid_pct": 76.98,
+      "default_pct": 0.25,
+      "avg_fico": 747.0,
+      "avg_ltv": 95.3,
+      "avg_rate": 4.071,
+      "avg_upb": 222056.0
+    }
+  },
+  "by_purpose": {
+    "Purchase": {
+      "count": 1259064,
+      "prepaid": 942158,
+      "defaulted": 1651,
+      "prepaid_pct": 74.83,
+      "default_pct": 0.131,
+      "avg_fico": 755.0,
+      "avg_ltv": 85.5,
+      "avg_rate": 4.042,
+      "avg_upb": 232916.0
+    },
+    "Cash-out": {
+      "count": 306265,
+      "prepaid": 237637,
+      "defaulted": 441,
+      "prepaid_pct": 77.59,
+      "default_pct": 0.144,
+      "avg_fico": 738.0,
+      "avg_ltv": 74.1,
+      "avg_rate": 4.22,
+      "avg_upb": 233381.0
+    },
+    "Refi": {
+      "count": 434671,
+      "prepaid": 342837,
+      "defaulted": 357,
+      "prepaid_pct": 78.87,
+      "default_pct": 0.082,
+      "avg_fico": 754.0,
+      "avg_ltv": 77.3,
+      "avg_rate": 3.978,
+      "avg_upb": 270606.0
+    }
+  },
+  "by_state": {
+    "CA": {
+      "count": 281450,
+      "prepaid": 234625,
+      "defaulted": 127,
+      "prepaid_pct": 83.36,
+      "default_pct": 0.045,
+      "avg_fico": 750.0,
+      "avg_ltv": 77.4,
+      "avg_rate": 4.093,
+      "avg_upb": 340581.0
+    },
+    "TX": {
+      "count": 160515,
+      "prepaid": 118577,
+      "defaulted": 288,
+      "prepaid_pct": 73.87,
+      "default_pct": 0.179,
+      "avg_fico": 746.0,
+      "avg_ltv": 82.7,
+      "avg_rate": 4.102,
+      "avg_upb": 221882.0
+    },
+    "FL": {
+      "count": 124499,
+      "prepaid": 91908,
+      "defaulted": 144,
+      "prepaid_pct": 73.82,
+      "default_pct": 0.116,
+      "avg_fico": 748.0,
+      "avg_ltv": 82.3,
+      "avg_rate": 4.147,
+      "avg_upb": 209380.0
+    },
+    "CO": {
+      "count": 78438,
+      "prepaid": 67414,
+      "defaulted": 25,
+      "prepaid_pct": 85.95,
+      "default_pct": 0.032,
+      "avg_fico": 753.0,
+      "avg_ltv": 80.0,
+      "avg_rate": 4.094,
+      "avg_upb": 264778.0
+    },
+    "IL": {
+      "count": 72865,
+      "prepaid": 53914,
+      "defaulted": 202,
+      "prepaid_pct": 73.99,
+      "default_pct": 0.277,
+      "avg_fico": 752.0,
+      "avg_ltv": 83.1,
+      "avg_rate": 4.025,
+      "avg_upb": 208423.0
+    },
+    "WA": {
+      "count": 72656,
+      "prepaid": 58832,
+      "defaulted": 22,
+      "prepaid_pct": 80.97,
+      "default_pct": 0.03,
+      "avg_fico": 755.0,
+      "avg_ltv": 81.3,
+      "avg_rate": 4.06,
+      "avg_upb": 278861.0
+    },
+    "AZ": {
+      "count": 65257,
+      "prepaid": 54655,
+      "defaulted": 36,
+      "prepaid_pct": 83.75,
+      "default_pct": 0.055,
+      "avg_fico": 750.0,
+      "avg_ltv": 82.3,
+      "avg_rate": 4.179,
+      "avg_upb": 215796.0
+    },
+    "MI": {
+      "count": 63129,
+      "prepaid": 48507,
+      "defaulted": 90,
+      "prepaid_pct": 76.84,
+      "default_pct": 0.143,
+      "avg_fico": 749.0,
+      "avg_ltv": 83.8,
+      "avg_rate": 4.086,
+      "avg_upb": 179713.0
+    },
+    "GA": {
+      "count": 60027,
+      "prepaid": 45982,
+      "defaulted": 50,
+      "prepaid_pct": 76.6,
+      "default_pct": 0.083,
+      "avg_fico": 752.0,
+      "avg_ltv": 83.6,
+      "avg_rate": 4.022,
+      "avg_upb": 223001.0
+    },
+    "NC": {
+      "count": 59868,
+      "prepaid": 45553,
+      "defaulted": 47,
+      "prepaid_pct": 76.09,
+      "default_pct": 0.079,
+      "avg_fico": 756.0,
+      "avg_ltv": 83.4,
+      "avg_rate": 4.015,
+      "avg_upb": 216669.0
+    }
+  },
+  "n_prepayment_curves": 15
+}

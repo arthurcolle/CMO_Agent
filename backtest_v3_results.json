@@ -1,0 +1,425 @@
+{
+  "total_deals": 742,
+  "agent_mean_reward": 111.23,
+  "expert_mean_reward": 9.88,
+  "mean_alpha": 101.35,
+  "win_rate": 0.903,
+  "by_dealer": {
+    "JP Morgan": {
+      "n_deals": 74,
+      "agent_mean": 109.83,
+      "expert_mean": 2.12,
+      "mean_alpha": 107.72,
+      "win_rate": 0.889
+    },
+    "Goldman Sachs": {
+      "n_deals": 74,
+      "agent_mean": 95.61,
+      "expert_mean": 17.26,
+      "mean_alpha": 78.35,
+      "win_rate": 0.833
+    },
+    "Morgan Stanley": {
+      "n_deals": 74,
+      "agent_mean": 117.85,
+      "expert_mean": 30.77,
+      "mean_alpha": 87.09,
+      "win_rate": 0.972
+    },
+    "Mizuho": {
+      "n_deals": 66,
+      "agent_mean": 187.94,
+      "expert_mean": 7.33,
+      "mean_alpha": 180.61,
+      "win_rate": 1.0
+    },
+    "Truist": {
+      "n_deals": 21,
+      "agent_mean": 83.81,
+      "expert_mean": 16.08,
+      "mean_alpha": 67.73,
+      "win_rate": 0.5
+    },
+    "Wells Fargo": {
+      "n_deals": 72,
+      "agent_mean": 97.86,
+      "expert_mean": 35.19,
+      "mean_alpha": 62.67,
+      "win_rate": 0.735
+    },
+    "BofA": {
+      "n_deals": 75,
+      "agent_mean": 153.09,
+      "expert_mean": 34.42,
+      "mean_alpha": 118.67,
+      "win_rate": 1.0
+    },
+    "Citigroup": {
+      "n_deals": 74,
+      "agent_mean": 110.87,
+      "expert_mean": 33.3,
+      "mean_alpha": 77.58,
+      "win_rate": 0.806
+    },
+    "Credit Suisse": {
+      "n_deals": 34,
+      "agent_mean": 117.42,
+      "expert_mean": -2.55,
+      "mean_alpha": 119.97,
+      "win_rate": 0.941
+    },
+    "Nomura": {
+      "n_deals": 39,
+      "agent_mean": 117.36,
+      "expert_mean": 57.43,
+      "mean_alpha": 59.93,
+      "win_rate": 0.857
+    },
+    "BMO": {
+      "n_deals": 45,
+      "agent_mean": 151.9,
+      "expert_mean": -44.9,
+      "mean_alpha": 196.8,
+      "win_rate": 1.0
+    },
+    "Barclays": {
+      "n_deals": 34,
+      "agent_mean": 151.15,
+      "expert_mean": -33.37,
+      "mean_alpha": 184.52,
+      "win_rate": 1.0
+    },
+    "BNP Paribas": {
+      "n_deals": 27,
+      "agent_mean": 101.28,
+      "expert_mean": 31.83,
+      "mean_alpha": 69.45,
+      "win_rate": 0.741
+    },
+    "Santander": {
+      "n_deals": 33,
+      "agent_mean": 118.15,
+      "expert_mean": 41.14,
+      "mean_alpha": 77.01,
+      "win_rate": 0.818
+    }
+  },
+  "by_period": {
+    "2019": {
+      "n_deals": 16,
+      "agent_mean": 124.11,
+      "expert_mean": -2.01,
+      "mean_alpha": 126.12,
+      "win_rate": 1.0
+    },
+    "2020": {
+      "n_deals": 78,
+      "agent_mean": 112.45,
+      "expert_mean": -16.13,
+      "mean_alpha": 128.58,
+      "win_rate": 0.949
+    },
+    "2021": {
+      "n_deals": 112,
+      "agent_mean": 108.42,
+      "expert_mean": -5.49,
+      "mean_alpha": 113.92,
+      "win_rate": 0.92
+    },
+    "2022": {
+      "n_deals": 121,
+      "agent_mean": 116.3,
+      "expert_mean": -3.87,
+      "mean_alpha": 120.16,
+      "win_rate": 0.942
+    },
+    "2023": {
+      "n_deals": 123,
+      "agent_mean": 109.11,
+      "expert_mean": 15.93,
+      "mean_alpha": 93.17,
+      "win_rate": 0.886
+    },
+    "2024": {
+      "n_deals": 145,
+      "agent_mean": 110.93,
+      "expert_mean": 27.21,
+      "mean_alpha": 83.72,
+      "win_rate": 0.89
+    },
+    "2025": {
+      "n_deals": 147,
+      "agent_mean": 109.22,
+      "expert_mean": 25.86,
+      "mean_alpha": 83.36,
+      "win_rate": 0.85
+    }
+  },
+  "by_complexity": {
+    "complex": {
+      "n_deals": 735,
+      "agent_mean": 111.07,
+      "expert_mean": 9.83,
+      "mean_alpha": 101.24,
+      "win_rate": 0.902
+    },
+    "moderate": {
+      "n_deals": 6,
+      "agent_mean": 126.57,
+      "expert_mean": 16.41,
+      "mean_alpha": 110.16,
+      "win_rate": 1.0
+    },
+    "simple": {
+      "n_deals": 1,
+      "agent_mean": 135.82,
+      "expert_mean": 7.12,
+      "mean_alpha": 128.71,
+      "win_rate": 1.0
+    }
+  },
+  "top_deals": [
+    {
+      "deal_id": "2023-141",
+      "dealer": "Barclays Capital Inc.",
+      "period": "September 2023",
+      "alpha": 250.76,
+      "agent_reward": 151.71,
+      "expert_reward": -99.05
+    },
+    {
+      "deal_id": "2021-097",
+      "dealer": "JP Morgan",
+      "period": "June 2021",
+      "alpha": 235.81,
+      "agent_reward": 181.96,
+      "expert_reward": -53.84
+    },
+    {
+      "deal_id": "2023-075",
+      "dealer": "Barclays Capital",
+      "period": "May 2023",
+      "alpha": 229.54,
+      "agent_reward": 139.79,
+      "expert_reward": -89.75
+    },
+    {
+      "deal_id": "2020-149",
+      "dealer": "Wells Fargo",
+      "period": "October 2020",
+      "alpha": 228.92,
+      "agent_reward": 151.29,
+      "expert_reward": -77.63
+    },
+    {
+      "deal_id": "2021-158",
+      "dealer": "Citigroup",
+      "period": "September 2021",
+      "alpha": 227.39,
+      "agent_reward": 170.62,
+      "expert_reward": -56.77
+    },
+    {
+      "deal_id": "2022-063",
+      "dealer": "JP Morgan",
+      "period": "April 2022",
+      "alpha": 226.76,
+      "agent_reward": 185.46,
+      "expert_reward": -41.3
+    },
+    {
+      "deal_id": "2023-014",
+      "dealer": "Mizuho Securities USA, LLC",
+      "period": "January 2023",
+      "alpha": 225.88,
+      "agent_reward": 156.65,
+      "expert_reward": -69.23
+    },
+    {
+      "deal_id": "2025-164",
+      "dealer": "BNP Paribas Securities Corp.",
+      "period": "September 2025",
+      "alpha": 222.71,
+      "agent_reward": 129.57,
+      "expert_reward": -93.14
+    },
+    {
+      "deal_id": "2020-061",
+      "dealer": "Wells Fargo",
+      "period": "May 2020",
+      "alpha": 219.16,
+      "agent_reward": 185.94,
+      "expert_reward": -33.22
+    },
+    {
+      "deal_id": "2021-139",
+      "dealer": "Citigroup",
+      "period": "August 2021",
+      "alpha": 217.52,
+      "agent_reward": 147.49,
+      "expert_reward": -70.03
+    },
+    {
+      "deal_id": "2025-190",
+      "dealer": "J.P. Morgan Securities LLC",
+      "period": "November 2025",
+      "alpha": 215.31,
+      "agent_reward": 189.31,
+      "expert_reward": -26.0
+    },
+    {
+      "deal_id": "2020-153",
+      "dealer": "Goldman Sachs",
+      "period": "October 2020",
+      "alpha": 209.81,
+      "agent_reward": 159.71,
+      "expert_reward": -50.1
+    },
+    {
+      "deal_id": "2022-051",
+      "dealer": "Citigroup",
+      "period": "March 2022",
+      "alpha": 208.59,
+      "agent_reward": 176.88,
+      "expert_reward": -31.71
+    },
+    {
+      "deal_id": "2020-133",
+      "dealer": "Citigroup",
+      "period": "September 2020",
+      "alpha": 207.23,
+      "agent_reward": 156.88,
+      "expert_reward": -50.35
+    },
+    {
+      "deal_id": "2024-197",
+      "dealer": "BMO Capital Markets Corp.",
+      "period": "December 2024",
+      "alpha": 205.07,
+      "agent_reward": 171.26,
+      "expert_reward": -33.81
+    },
+    {
+      "deal_id": "2021-077",
+      "dealer": "JP Morgan",
+      "period": "May 2021",
+      "alpha": 203.94,
+      "agent_reward": 160.86,
+      "expert_reward": -43.08
+    },
+    {
+      "deal_id": "2022-213",
+      "dealer": "Truist Securities",
+      "period": "December 2022",
+      "alpha": 201.96,
+      "agent_reward": 158.95,
+      "expert_reward": -43.01
+    },
+    {
+      "deal_id": "2021-027",
+      "dealer": "Wells Fargo",
+      "period": "February 2021",
+      "alpha": 200.72,
+      "agent_reward": 160.56,
+      "expert_reward": -40.15
+    },
+    {
+      "deal_id": "2021-119",
+      "dealer": "Citigroup",
+      "period": "July 2021",
+      "alpha": 200.61,
+      "agent_reward": 165.35,
+      "expert_reward": -35.26
+    },
+    {
+      "deal_id": "2022-120",
+      "dealer": "JP Morgan",
+      "period": "July 2022",
+      "alpha": 199.49,
+      "agent_reward": 187.43,
+      "expert_reward": -12.06
+    }
+  ],
+  "worst_deals": [
+    {
+      "deal_id": "2024-207",
+      "dealer": "Wells Fargo Bank, N.A.",
+      "period": "December 2024",
+      "alpha": -81.8,
+      "agent_reward": -19.9,
+      "expert_reward": 61.9
+    },
+    {
+      "deal_id": "2023-116",
+      "dealer": "BofA Securities, Inc.",
+      "period": "August 2023",
+      "alpha": -81.43,
+      "agent_reward": -19.9,
+      "expert_reward": 61.53
+    },
+    {
+      "deal_id": "2023-042",
+      "dealer": "Citigroup Global Markets Inc.",
+      "period": "March 2023",
+      "alpha": -76.29,
+      "agent_reward": -19.9,
+      "expert_reward": 56.39
+    },
+    {
+      "deal_id": "2025-102",
+      "dealer": "Barclays Capital Inc.",
+      "period": "June 2025",
+      "alpha": -70.16,
+      "agent_reward": 35.63,
+      "expert_reward": 105.79
+    },
+    {
+      "deal_id": "2023-123",
+      "dealer": "BNP Paribas Securities Corp.",
+      "period": "August 2023",
+      "alpha": -62.63,
+      "agent_reward": 21.79,
+      "expert_reward": 84.42
+    },
+    {
+      "deal_id": "2023-192",
+      "dealer": "Mizuho Securities USA LLC",
+      "period": "December 2023",
+      "alpha": -59.81,
+      "agent_reward": 31.82,
+      "expert_reward": 91.63
+    },
+    {
+      "deal_id": "2024-092",
+      "dealer": "Santander US Capital Markets LLC",
+      "period": "May 2024",
+      "alpha": -59.49,
+      "agent_reward": 35.37,
+      "expert_reward": 94.87
+    },
+    {
+      "deal_id": "2023-190",
+      "dealer": "Wells Fargo Bank, N.A.",
+      "period": "December 2023",
+      "alpha": -57.77,
+      "agent_reward": 36.2,
+      "expert_reward": 93.96
+    },
+    {
+      "deal_id": "2024-005",
+      "dealer": "Wells Fargo Bank, N.A.",
+      "period": "January 2024",
+      "alpha": -55.5,
+      "agent_reward": 33.37,
+      "expert_reward": 88.87
+    },
+    {
+      "deal_id": "2025-199",
+      "dealer": "Wells Fargo Bank, N.A.",
+      "period": "November 2025",
+      "alpha": -55.06,
+      "agent_reward": 32.22,
+      "expert_reward": 87.28
+    }
+  ]
+}
